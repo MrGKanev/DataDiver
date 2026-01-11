@@ -1,0 +1,9 @@
+services:
+  datadiver:
+    build: .
+    image: datadiver:latest
+    container_name: datadiver
+    volumes:
+      - ./output:/output
+    # Override command with your URL
+    # command: ["https://example.com", "--max", "100"]

@@ -1,0 +1,61 @@
+[project]
+name = "datadiver"
+version = "1.0.0"
+description = "Modern async web scraper for extracting metadata and structure from websites"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Gabriel Kanev" }]
+requires-python = ">=3.12"
+keywords = ["web-scraping", "seo", "metadata", "crawler", "async"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+dependencies = [
+    "httpx>=0.28.0",
+    "beautifulsoup4>=4.12.3",
+    "lxml>=5.3.0",
+    "rich>=13.9.0",
+    "typer>=0.15.0",
+    "aiofiles>=24.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.8.0",
+    "mypy>=1.14.0",
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.25.0",
+]
+
+[project.scripts]
+datadiver = "datadiver:main"
+dd = "datadiver:main"
+
+[project.urls]
+Homepage = "https://github.com/MrGKanev/DataDiver"
+Repository = "https://github.com/MrGKanev/DataDiver"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
